@@ -1,0 +1,3 @@
+Your test scripts live in here - they will not be served to the client
+
+Note - lets start out with Casper.js perhaps?

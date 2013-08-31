@@ -1,0 +1,8 @@
+Files placed out here on the root are available to both the client and the server.
+
+This is a beginning file structure pulled from a reference.
+
+For more information:
+https://www.github.com/oortcloud/unofficial-meteor-faq
+
+Always up for refinement ;)

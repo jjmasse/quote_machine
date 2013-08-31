@@ -1,0 +1,3 @@
+Store all collections in this directory
+
+Collections are the link between the backend and front end as data changes
