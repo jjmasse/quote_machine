@@ -2,20 +2,23 @@
 <template name="main_ui">
 	
 	<div class="span8 well well-small" id="main_list_ui">
+		<!-- text input field -->
 		<div class="span3">
 			<div class="input-prepend input-append">
 				<input class="span3" type="text" placeholder="Line item" />
 			</div>
 		</div>
 		
+		<!-- amounts input field -->
 		<div class="span3">
 			<div class="input-prepend input-append">
 				<span class="add-on">$</span>
-				<input class="span2" type="text" placeholder="99.99" />
+				<input class="span2 cost_input_field" type="text" placeholder="99.99" />
 				<button class="btn" type="button" title="toggle opperation">+</button>
 			</div>
 
 		</div>
+		<!-- delete button -->
 		<button class="btn" type="button" title="Delete this row">Delete</button>
 	</div>
 

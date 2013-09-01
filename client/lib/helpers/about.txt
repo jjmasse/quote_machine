@@ -1,1 +1,0 @@
-Any helper files that are often used in template files

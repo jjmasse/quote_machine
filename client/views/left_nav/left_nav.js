@@ -2,7 +2,7 @@ $(document).ready(function(){
 	var leftNav = {}; // left nav namespace
 
 
-	leftNav.rowCommands = { // methods for ui elements
+	leftNav.control = { // methods for ui elements
 		addNewRow: function(event, t) {
 			event.preventDefault();
 			console.log('Create a new Mongo Row!!!');
@@ -14,7 +14,7 @@ $(document).ready(function(){
 	};
 
 	Template.left_nav.events({ // assigning events to the template
-		'click #btn_add_item': leftNav.rowCommands.addNewRow,
-		'click #btn_create_section': leftNav.rowCommands.addNewSection
+		'click #btn_add_item': leftNav.control.addNewRow,
+		'click #btn_create_section': leftNav.control.addNewSection
 	});
 });
