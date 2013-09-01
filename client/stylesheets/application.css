@@ -17,3 +17,8 @@
 	border-bottom: 1px solid #D8D8D8;
 	padding-bottom: 5px;
 }
+
+/* --- body ui --- */
+#main_list_ui {
+	padding-top: 18px;
+}

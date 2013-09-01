@@ -1,0 +1,1 @@
+// js for total info row
