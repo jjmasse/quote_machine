@@ -5,14 +5,13 @@ globalValues = {}; // a global object with any special rule values we need to st
 globalHelpers = { // global object filled with nifty methods to aid other methods
 	keyDownAllowCurrency: function(event, t) { // evaluates what the user typed and prevents alpha characters
 		var shiftAllowedKeys = [38, 9], // up key | shift key
-			allowedKeys = [8, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57], // keys that are not allowed - typically characters
+			allowedKeys = [8, 9, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57], // keys that are not allowed - typically characters
 			keyPressed = event.which, // the key number that was pressed
 			isValidKey = false, // a flag var to be used when needed for looping through keys
 			currentTarget = event.currentTarget, // element that fired the event
 			value = currentTarget.value, // current string value
 			hasDecimal = value.split('.'); // used to determine if a decimal point exists
-
-		
+			
 		if(hasDecimal.length <= 1) { // if there is no decimal from the current target then it is still allowed
 			allowedKeys.push(190);
 		}

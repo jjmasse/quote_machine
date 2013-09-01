@@ -6,36 +6,30 @@ $(document).ready(function() {
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
 			var that = event.currentTarget, // reference to current target
 				enteredValue = that.value, // current entered value
-				helpers = mainUI.helpers; // reference to the helpers obj 
-			helpers.cleanAndRepairAmount(that, enteredValue); // cleans and repairs inputs to dollars and cents
+				helpers = mainUI.helpers; // reference to the helpers obj
+
+			helpers.roundInputValue(that, enteredValue); // update the value to only two spots after the decimal
 		},
 		
 	};
 
 	mainUI.helpers = { // helper methods
-		cleanAndRepairAmount: function(referenceToInputField, amountFromInputField) {
-			var that = this, // reference to itself
-				input = referenceToInputField,
-				amt = amountFromInputField;
+		roundInputValue: function(inputFieldToUpdate, inputFieldsCurrentValue) {
+			var input = inputFieldToUpdate,
+				text = inputFieldsCurrentValue;
 
-			// clean out any alpha characters in the string
-			//input.value = this.removeAlpha(amt); // assigns the cleaned out string to the input field
-
-			// see if this thing is a string
-			if(typeof amt === 'string') {
-				// console.log('it is a string');
+			if(text !== '' && text !== '.') { // make sure we have a value to work with
+				text = parseFloat(text);
+				text = text.toFixed(2); // round to the second place
+				input.value = text; // update the input field with the rounded value
+			} else { // just empty this out - we have invalid input
+				input.value = '';
 			}
-
-		},
-		removeAlpha: function(stringValue) { // takes a string and returns the same string but without any alpha characters
-			var str = stringValue;
-			str = str.replace(/\D/g, ''); // regex sees D as anything that is not a number
-			return str; // return a new string without any alpha characters
 		}
 	};
 
 	Template.main_ui.events({ // events associated with the main_ui template
-		'keyup .cost_input_field': mainUI.control.controlAmountContent, // controls the content entered - removes not needed characters and kicks off updating the data
+		'focusout .cost_input_field': mainUI.control.controlAmountContent, // controls the content entered - removes not needed characters and kicks off updating the data
 		'keydown .cost_input_field': globalHelpers.keyDownAllowCurrency // use globalHelpers method to prevent unwanted characters for currency
 	});
 
