@@ -13,8 +13,10 @@
 <h2>Frameworks Used</h2>
 <p>Here is a list of outside plugins or frameworks that this project uses and might need some additional outside research to become familiar with.</p>
 <ol>
+	<li><a href="http://www.meteor.com/">Meteor</a> - developement environment and RTW</li>
+	<li><a href="http://getbootstrap.com/2.3.2/">Bootstrap</a> - helper for styling</li>
 	<li><a href="http://handlebarsjs.com/">Handlebars</a> - for HTML templating</li>
-	<li><a href="http://jquery.com/">jQuery</a></li>
+	<li><a href="http://jquery.com/">jQuery</a> - selectors etc... trying to stick to Vanilla js as much as possible</li>
 	<li><a href="https://github.com/EventedMind/iron-router">iron-router</a> - simply for routing</li>
 	<li><a href="http://www.mongodb.org/">MongoDB<a/> - as the JSON DB</li>
 </ol>
