@@ -10,7 +10,7 @@
   <li>Nav into your project directory and run mrt</li>
 </ol>
 
-<h2>Frameworks Used</h2>
+<h2>Frameworks / Plugins Used</h2>
 <p>Here is a list of outside plugins or frameworks that this project uses and might need some additional outside research to become familiar with.</p>
 <ol>
 	<li><a href="http://www.meteor.com/">Meteor</a> - developement environment and RTW</li>
