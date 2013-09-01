@@ -35,8 +35,8 @@ $(document).ready(function() {
 	};
 
 	Template.main_ui.events({ // events associated with the main_ui template
-		'keyup .cost_input_field': mainUI.control.controlAmountContent,
-		'keydown .cost_input_field': globalHelpers.keyUpAllowCurrency // use globalHelpers method to prevent unwanted characters for currency
+		'keyup .cost_input_field': mainUI.control.controlAmountContent, // controls the content entered - removes not needed characters and kicks off updating the data
+		'keydown .cost_input_field': globalHelpers.keyDownAllowCurrency // use globalHelpers method to prevent unwanted characters for currency
 	});
 
 });
