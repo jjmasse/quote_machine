@@ -22,3 +22,8 @@
 #main_list_ui {
 	padding-top: 18px;
 }
+
+/* --- total info adjustments --- */
+#total_amount_info h3 {
+	padding-right:60px;
+}

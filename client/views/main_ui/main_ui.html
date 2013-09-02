@@ -1,10 +1,10 @@
 <!-- application left bar navigation -->
 <template name="main_ui">
-	{{#each rows}}
-	
 	<div class="span8 well well-small" id="main_list_ui">
+		
+		{{#each rows}}
 		<!-- text input field -->
-		<div class="span3">
+		<div class="span3" data-rowid="{{_id}}">
 			<div class="input-prepend input-append">
 				<input class="span3" type="text" placeholder="Line item" value="{{label}}" />
 			</div>
@@ -20,8 +20,10 @@
 
 		</div>
 		<!-- delete button -->
-		<button class="btn delete_row" data-id="INSERT_UNIQUE_ROW_ID" type="button" title="Delete this row">Delete</button>
+		<div class="span1">
+			<button class="btn delete_row" type="button" title="Delete this row">Delete</button>
+		</div>
+		{{/each}}
+	
 	</div>
-
-	{{/each}}
 </template>

@@ -18,11 +18,9 @@ var mainUI = {}; // define the main ui obj
 		},
 		deleteRow: function(event, t) {
 			event.preventDefault();
-			var $that = $(event.currentTarget),
-				rowID = $that.data('id');
+			var $that = $(event.currentTarget);
 
 			console.log('update total data by removing this row information');
-			console.log(rowID);
 		}
 	};
 
@@ -53,6 +51,6 @@ $(document).ready(function() {
 
 	// wire in data
 	Template.main_ui.rows = function() {
-		return AppData.find({});
+		return RowData.find({}); // get all of the records in rowdata and display them
 	}
 });
