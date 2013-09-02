@@ -14,7 +14,15 @@ var mainUI = {}; // define the main ui obj
 				currentOpperation = $that.data('opperation'); // get the current opperation
 
 			// update the opperation data associated with this row
+			console.log('Update opperation');
+		},
+		deleteRow: function(event, t) {
+			event.preventDefault();
+			var $that = $(event.currentTarget),
+				rowID = $that.data('id');
 
+			console.log('update total data by removing this row information');
+			console.log(rowID);
 		}
 	};
 
@@ -39,6 +47,12 @@ $(document).ready(function() {
 	Template.main_ui.events({ // events associated with the main_ui template
 		'focusout .cost_input_field': mainUI.control.controlAmountContent, // controls the content entered - removes not needed characters and kicks off updating the data
 		'keydown .cost_input_field': globalHelpers.keyDownAllowCurrency, // use globalHelpers method to prevent unwanted characters for currency
-		'click .toggle_opperation': mainUI.control.toggleOpperation
+		'click .toggle_opperation': mainUI.control.toggleOpperation,
+		'click .delete_row': mainUI.control.deleteRow
 	});
+
+	// wire in data
+	Template.main_ui.rows = function() {
+		return AppData.find({});
+	}
 });
