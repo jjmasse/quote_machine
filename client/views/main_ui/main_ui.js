@@ -1,6 +1,4 @@
-// js associated with the text and amount input fields
-$(document).ready(function() {
-	var mainUI = {}; // define the main ui obj
+var mainUI = {}; // define the main ui obj
 
 	mainUI.control = { // commands and helpers
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
@@ -10,7 +8,14 @@ $(document).ready(function() {
 
 			helpers.roundInputValue(that, enteredValue); // update the value to only two spots after the decimal
 		},
-		
+		toggleOpperation: function(event, t) {
+			event.preventDefault();
+			var $that = $(event.currentTarget), // wrap the current target in a jQuery object
+				currentOpperation = $that.data('opperation'); // get the current opperation
+
+			// update the opperation data associated with this row
+
+		}
 	};
 
 	mainUI.helpers = { // helper methods
@@ -28,9 +33,12 @@ $(document).ready(function() {
 		}
 	};
 
+// js associated with the text and amount input fields
+$(document).ready(function() {
+	// template events
 	Template.main_ui.events({ // events associated with the main_ui template
 		'focusout .cost_input_field': mainUI.control.controlAmountContent, // controls the content entered - removes not needed characters and kicks off updating the data
-		'keydown .cost_input_field': globalHelpers.keyDownAllowCurrency // use globalHelpers method to prevent unwanted characters for currency
+		'keydown .cost_input_field': globalHelpers.keyDownAllowCurrency, // use globalHelpers method to prevent unwanted characters for currency
+		'click .toggle_opperation': mainUI.control.toggleOpperation
 	});
-
 });
