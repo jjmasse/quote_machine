@@ -1,16 +1,8 @@
 // create row data
 RowData = new Meteor.Collection(); // creates an expiring mini-mongo db
 
-// create the default data obj
-var defaultRowData = {
-	label: '',
-	amount: '',
-	opperation: 'add',
-	opperationSymbol: '+'
-};
-
 // insert some dummy data
-RowData.insert(defaultRowData);
+RowData.insert(globalValues.baseRowObject);
 
 
 // application wide data
