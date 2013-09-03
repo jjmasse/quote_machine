@@ -11,7 +11,6 @@ var defaultRowData = {
 
 // insert some dummy data
 RowData.insert(defaultRowData);
-RowData.insert(defaultRowData);
 
 
 // application wide data
