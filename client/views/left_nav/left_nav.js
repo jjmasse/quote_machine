@@ -6,6 +6,14 @@ $(document).ready(function(){
 		addNewRow: function(event, t) {
 			event.preventDefault();
 			console.log('Create a new Mongo Row!!!');
+			var defaultRowData = {
+				label: '',
+				amount: '',
+				opperation: 'add',
+				opperationSymbol: '+'
+			};
+
+			RowData.insert(defaultRowData); // add a new row to the row data store
 		},
 		addNewSection: function(event, t) {
 			event.preventDefault();
