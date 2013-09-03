@@ -9,7 +9,7 @@ RowData.insert(globalValues.baseRowObject);
 ApplicationData = new Meteor.Collection();
 
 // default application data obj
-var defaultApplicationData = {}; 
+var defaultApplicationData = {};
 
 
 

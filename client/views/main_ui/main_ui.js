@@ -1,6 +1,9 @@
 var mainUI = {}; // define the main ui obj
 
 	mainUI.control = { // commands and helpers
+		controlLabelContent: function(event, t) { // updates this rows label data
+			console.log('need to update this instances label data');
+		},
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
 			var that = event.currentTarget, // reference to current target
 				enteredValue = that.value, // current entered value
@@ -45,12 +48,14 @@ $(document).ready(function() {
 	Template.main_ui.events({ // events associated with the main_ui template
 		'focusout .cost_input_field': mainUI.control.controlAmountContent, // controls the content entered - removes not needed characters and kicks off updating the data
 		'keydown .cost_input_field': globalHelpers.keyDownAllowCurrency, // use globalHelpers method to prevent unwanted characters for currency
+		'keydown .label_input_field': mainUI.control.controlLabelContent,
 		'click .toggle_opperation': mainUI.control.toggleOpperation,
 		'click .delete_row': mainUI.control.deleteRow
 	});
 
-	// wire in data
+	// wire in the data to build the rows
 	Template.main_ui.rows = function() {
 		return RowData.find({}); // get all of the records in rowdata and display them
 	}
+
 });
