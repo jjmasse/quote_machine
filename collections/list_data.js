@@ -8,11 +8,11 @@ RowData.insert(globalValues.baseRowObject);
 ApplicationData = new Meteor.Collection();
 
 // default application data obj
-var defaultApplicationData = {
+DefaultApplicationData = {
 	total_amount: '100.00'
 };
 
-ApplicationData.insert(defaultApplicationData); // add the default application data to the collection
+ApplicationData.insert(DefaultApplicationData); // add the default application data to the collection
 
 
 

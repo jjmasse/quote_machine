@@ -3,6 +3,7 @@ var mainUI = {}; // define the main ui obj
 	mainUI.control = { // commands and helpers
 		controlLabelContent: function(event, t) { // updates this rows label data
 			console.log('need to update this instances label data');
+			var that = event.currentTarget;
 		},
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
 			var that = event.currentTarget, // reference to current target

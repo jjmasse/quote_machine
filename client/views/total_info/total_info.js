@@ -3,9 +3,43 @@ $(document).ready(function() {
 
 	// build out the sum of all amounts in stored rows and add them here
 
-	var query = ApplicationData.find({}).total_amount;
+	// var query = ApplicationData.find({}).total_amount;
 
-	Template.total_info.total = function() {
-		return ApplicationData.find({}).fetch().total_amount;
+	var totalInfo = {};
+
+	totalInfo.data = { // stores any data we need for total info
+		totalAmount: 0
+	};
+
+	totalInfo.control = { // total info controller methods
+		updateTotalAmount: function() { // whenever an amount changes - we re-run the generation of the amount
+			// loop through each of the docs in RowData and generate a value
+			var rows = RowData.find({}),
+				newTotal = 0;
+			rows.forEach(function(row) {
+				var rowAmt = row.amount, // store the amount
+					rowOpperationSymbol = row.opperationSymbol; // sums up the new total
+
+				if(rowAmt !== '') {
+					if(rowOpperationSymbol === '+') {
+						newTotal  = newTotal + rowAmt;
+					} else if(rowOpperationSymbol === '-') {
+						newTotal = newTotal - rowAmt;
+					}
+				}
+			});
+			// pass off the new total
+			return newTotal.toFixed(2);
+		}
+	};
+
+
+	// automatically update the total row when data is changing
+	Deps.autorun(function() { // whenever the data changes update the total amount
+		totalInfo.data.totalAmount = totalInfo.control.updateTotalAmount();
+	});
+
+	Template.total_info.totalAmount = function() {
+		return totalInfo.data.totalAmount;
 	}
 });
