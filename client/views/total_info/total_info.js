@@ -1,10 +1,5 @@
 // js for total info row
 $(document).ready(function() {
-
-	// build out the sum of all amounts in stored rows and add them here
-
-	// var query = ApplicationData.find({}).total_amount;
-
 	var totalInfo = {};
 
 	totalInfo.data = { // stores any data we need for total info
