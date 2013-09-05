@@ -17,7 +17,9 @@ $(document).ready(function() {
 
 				if(rowAmt !== '') {
 					if(rowOpperationSymbol === '+') {
-						newTotal  = newTotal + rowAmt;
+
+						newTotal = parseFloat(newTotal) + parseFloat(rowAmt);
+
 					} else if(rowOpperationSymbol === '-') {
 						newTotal = newTotal - rowAmt;
 					}
@@ -29,12 +31,10 @@ $(document).ready(function() {
 	};
 
 
-	// automatically update the total row when data is changing
-	Deps.autorun(function() { // whenever the data changes update the total amount
-		totalInfo.data.totalAmount = totalInfo.control.updateTotalAmount();
-	});
-
+	// meteor templates are re-evaluated whenever something changes
 	Template.total_info.totalAmount = function() {
+		totalInfo.data.totalAmount = totalInfo.control.updateTotalAmount();
 		return totalInfo.data.totalAmount;
 	}
+	
 });
