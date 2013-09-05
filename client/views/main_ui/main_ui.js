@@ -33,9 +33,8 @@ var mainUI = {}; // define the main ui obj
 		},
 		deleteRow: function(event, t) {
 			event.preventDefault();
-			var $that = $(event.currentTarget);
-
-			console.log('update total data by removing this row information');
+			var thatData = this; // store reference to this things data
+			RowData.remove(thatData._id); // remove this record from the db
 		}
 	};
 
