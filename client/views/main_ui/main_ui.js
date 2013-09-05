@@ -63,9 +63,9 @@ $(document).ready(function() {
 		'click .delete_row': mainUI.control.deleteRow
 	});
 
-	// wire in the data to build the rows
-	Template.main_ui.rows = function() {
-		return RowData.find({}); // get all of the records in rowdata and display them
+	// find the document to render from the current session
+	Template.main_ui.documentInfo = function() {
+		return RowData.findOne({name: 'sandbox'}); // get all of the records in rowdata and display them
 	}
 
 });

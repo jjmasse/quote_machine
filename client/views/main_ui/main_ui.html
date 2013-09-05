@@ -1,31 +1,35 @@
 <!-- application left bar navigation -->
 <template name="main_ui">
 	<div class="span8 well well-small" id="main_list_ui">
-		
-		{{#each rows}}
-		<!-- text input field -->
-		<div data-rowid="{{_id}}">
-			<div class="span3">
-				<div class="input-prepend input-append">
-					<input class="span3 label_input_field" type="text" placeholder="Line item" value="{{label}}" />
+		<!-- important note here that the data we are looping through is nested within -->
+		<!-- a document object - #with is being used as the base so we can loop and access other parts -->
+		<!-- of the object to build out the elements we need -->
+		{{#with documentInfo}}
+			{{#each rowData}}
+			<!-- text input field -->
+			<div data-rowid="{{_id}}">
+				<div class="span3">
+					<div class="input-prepend input-append">
+						<input class="span3 label_input_field" type="text" placeholder="Line item" value="{{label}}" />
+					</div>
 				</div>
-			</div>
-			
-			<!-- amounts input field -->
-			<div class="span3">
-				<div class="input-prepend input-append">
-					<span class="add-on">$</span>
-					<input class="span2 cost_input_field" type="text" placeholder="99.99" value="{{amount}}" />
-					<button class="btn toggle_opperation" type="button" title="toggle opperation" data-opperation="{{opperation}}}">{{opperationSymbol}}</button>
-				</div>
+				
+				<!-- amounts input field -->
+				<div class="span3">
+					<div class="input-prepend input-append">
+						<span class="add-on">$</span>
+						<input class="span2 cost_input_field" type="text" placeholder="99.99" value="{{amount}}" />
+						<button class="btn toggle_opperation" type="button" title="toggle opperation" data-opperation="{{opperation}}}">{{opperationSymbol}}</button>
+					</div>
 
+				</div>
+				<!-- delete button -->
+				<div class="span1">
+					<button class="btn delete_row" type="button" title="Delete this row">Delete</button>
+				</div>
 			</div>
-			<!-- delete button -->
-			<div class="span1">
-				<button class="btn delete_row" type="button" title="Delete this row">Delete</button>
-			</div>
-		</div>
-		{{/each}}
+			{{/each}}
+		{{/with}}
 	
 	</div>
 </template>
