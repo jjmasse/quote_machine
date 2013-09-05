@@ -20,11 +20,16 @@ var mainUI = {}; // define the main ui obj
 		},
 		toggleOpperation: function(event, t) {
 			event.preventDefault();
-			var $that = $(event.currentTarget), // wrap the current target in a jQuery object
-				currentOpperation = $that.data('opperation'); // get the current opperation
+			var thatData = this, // store this things data
+				opperation; // will become the next opperation
 
-			// update the opperation data associated with this row
-			console.log('Update opperation');
+			if(thatData.opperationSymbol === '+') { // figure out what opperation we need to update this to
+				opperation = '-';
+			} else {
+				opperation = '+';
+			}
+
+			RowData.update(this._id, {$set: {opperationSymbol: opperation}}); // update the doc with the next opperation
 		},
 		deleteRow: function(event, t) {
 			event.preventDefault();
