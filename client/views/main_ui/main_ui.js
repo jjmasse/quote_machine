@@ -4,7 +4,7 @@ var mainUI = {}; // define the main ui obj
 		controlLabelContent: function(event, t) { // updates this rows label data
 			// console.log('need to update this instances label data');
 			var that = event.currentTarget;
-			RowData.update(this._id, {$set: {label: that.value}}); // use $set to set only the label in the selected document
+			this.label = that.value; // set the text value to this row
 		},
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
 			var that = event.currentTarget, // reference to current target
@@ -16,7 +16,7 @@ var mainUI = {}; // define the main ui obj
 			enteredValue = helpers.roundInputValue(enteredValue); // update the value with the rounded value
 			that.value = enteredValue; // update the fields text value with what came back from the rounding function
 			
-			RowData.update(this._id, {$set: {amount: enteredValue}}); // update the database with the new value
+			this.amount = enteredValue; // set the amount to the row
 		},
 		toggleOpperation: function(event, t) {
 			event.preventDefault();
@@ -29,12 +29,15 @@ var mainUI = {}; // define the main ui obj
 				opperation = '+';
 			}
 
-			RowData.update(this._id, {$set: {opperationSymbol: opperation}}); // update the doc with the next opperation
+			console.log(this.opperationSymbol);
+
+			this.opperationSymbol = opperation; // update the opperation symbol
 		},
 		deleteRow: function(event, t) {
 			event.preventDefault();
 			var thatData = this; // store reference to this things data
-			RowData.remove(thatData._id); // remove this record from the db
+			
+			console.log();
 		}
 	};
 

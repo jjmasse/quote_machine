@@ -3,7 +3,10 @@ var leftNav = {}; // left nav namespace
 leftNav.control = { // methods for ui elements
 	addNewRow: function(event, t) {
 		event.preventDefault();
-		RowData.insert(globalValues.baseRowObject); // add a new row to the row data store
+		// globalValues.baseRowObject
+		console.log(Session.get('document'));
+		// push a new row into the rowData
+		RowData.update(Session.get('document'), {$push: {rowData: {amount: '', label: '', opperation: 'add', opperationSymbol: '+'}}});
 	},
 	addNewSection: function(event, t) {
 		event.preventDefault();
