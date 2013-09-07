@@ -8,20 +8,17 @@ $(document).ready(function() {
 
 	totalInfo.control = { // total info controller methods
 		updateTotalAmount: function() { // whenever an amount changes - we re-run the generation of the amount
-			// loop through each of the docs in RowData and generate a value
-			var rows = RowData.find({}),
-				newTotal = 0;
+			// loop through all entries associated with this document
+			var rows = RowData.find({associatedDocument: Session.get('document')}),
+				newTotal = 0; // prepare the var that will become the new value
 			rows.forEach(function(row) {
-				var rowAmt = row.amount, // store the amount
-					rowOpperationSymbol = row.opperationSymbol; // sums up the new total
-
+				var rowAmt = row.dollaAmount, // store the amount
+					rowOpperationSymbol = row.opperation; // sums up the new total
 				if(rowAmt !== '') {
 					if(rowOpperationSymbol === '+') {
-
 						newTotal = parseFloat(newTotal) + parseFloat(rowAmt);
-
 					} else if(rowOpperationSymbol === '-') {
-						newTotal = newTotal - rowAmt;
+						newTotal = parseFloat(newTotal) - parseFloat(rowAmt);
 					}
 				}
 			});
