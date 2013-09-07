@@ -27,3 +27,10 @@
 #total_amount_info h3 {
 	padding-right:60px;
 }
+
+/* --- document title input text field --- */
+#document_title_input {
+	padding: 10px 10px 10px 20px;
+	width: 90%;
+	font-weight: 800;
+}

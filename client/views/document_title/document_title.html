@@ -1,3 +1,5 @@
 <template name="document_title">
-	<input type="text" placeholder="Enter a Document Title" value="{{title}}" />
+	{{#with documentData}}
+		<input id="document_title_input" type="text" placeholder="Enter a Document Title" value="{{title}}" />
+	{{/with}}
 </template>
