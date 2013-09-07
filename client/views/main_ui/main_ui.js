@@ -15,8 +15,7 @@ var mainUI = {}; // define the main ui obj
 
 			enteredValue = helpers.roundInputValue(enteredValue); // update the value with the rounded value
 			that.value = enteredValue; // update the fields text value with what came back from the rounding function
-			
-			this.amount = enteredValue; // set the amount to the row
+			RowData.update({_id: this._id}, {$set: {dollaAmount: enteredValue}});
 		},
 		toggleOpperation: function(event, t) {
 			event.preventDefault();
