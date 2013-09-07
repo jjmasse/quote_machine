@@ -17,20 +17,18 @@ var mainUI = {}; // define the main ui obj
 			that.value = enteredValue; // update the fields text value with what came back from the rounding function
 			RowData.update({_id: this._id}, {$set: {dollaAmount: enteredValue}});
 		},
-		toggleOpperation: function(event, t) {
+		toggleOpperation: function(event, template) {
 			event.preventDefault();
 			var thatData = this, // store this things data
 				opperation; // will become the next opperation
 
-			if(thatData.opperationSymbol === '+') { // figure out what opperation we need to update this to
+			if(thatData.opperation === '+') { // figure out what opperation we need to update this to
 				opperation = '-';
 			} else {
 				opperation = '+';
 			}
-
-			console.log(this.opperationSymbol);
-
-			this.opperationSymbol = opperation; // update the opperation symbol
+			// update the docs opperation
+			RowData.update({_id: this._id}, {$set: {opperation: opperation}});
 		},
 		deleteRow: function(event, template) {
 			// remove this row from RowData by document using the uniqueId
