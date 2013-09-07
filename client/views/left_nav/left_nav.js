@@ -2,10 +2,9 @@ var leftNav = {}; // left nav namespace
 
 leftNav.control = { // methods for ui elements
 	addNewRow: function(event, t) {
+		// addNewRow will add a new empty row to the current DataRow document
 		event.preventDefault();
-		// globalValues.baseRowObject
-		// push a new row into the rowData
-		RowData.update(Session.get('document'), {$push: {rowData: {rowId: Meteor.uuid(), amount: '', label: '', opperation: 'add', opperationSymbol: '+'}}});
+		RowData.update(Session.get('rows'), {$push: {rows: GlobalValues.defaultRowData}});
 	},
 	addNewSection: function(event, t) {
 		event.preventDefault();
