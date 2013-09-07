@@ -67,8 +67,8 @@ $(document).ready(function() {
 	});
 
 	// find the document to render from the current session
-	Template.main_ui.documentInfo = function() { // pull the content of the current session set
-		return RowData.findOne(Session.get('rows')); // get all of the records in rowdata and display them
+	Template.main_ui.rowData = function() { // pull the content of the current session set
+		return RowData.find({_id: Session.get('rows')}); // get all of the records in rowdata and display them
 	}
 
 });
