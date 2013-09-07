@@ -37,7 +37,6 @@ var mainUI = {}; // define the main ui obj
 			event.preventDefault();
 			var thatData = this; // store reference to this things data
 			
-			console.log();
 		}
 	};
 
