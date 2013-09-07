@@ -4,9 +4,9 @@
 		<!-- important note here that the data we are looping through is nested within -->
 		<!-- a document object - #with is being used as the base so we can loop and access other parts -->
 		<!-- of the object to build out the elements we need -->
-		{{#with rowData}}
-		{{#each rows}}
+		
 		<!-- text input field -->
+		{{#each rowData}}
 		<div>
 			<div class="span3">
 				<div class="input-prepend input-append">
@@ -29,6 +29,5 @@
 			</div>
 		</div>
 		{{/each}}
-		{{/with}}
 	</div>
 </template>
