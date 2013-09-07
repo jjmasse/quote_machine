@@ -36,10 +36,11 @@ var mainUI = {}; // define the main ui obj
 			this.opperationSymbol = opperation; // update the opperation symbol
 		},
 		deleteRow: function(event, t) {
-			// remove this row from RowData by document
+			// remove this row from RowData by document using the uniqueId
+			// of the clicked row
 			event.preventDefault();
 			var thatData = this; // store reference to this things data
-			console.log(thatData);
+			RowData.update(Session.get('rows'), {$pull: {rows: {uniqueId: thatData.uniqueId}}});
 		}
 	};
 	mainUI.helpers = { // helper methods
