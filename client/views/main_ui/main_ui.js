@@ -2,23 +2,11 @@ var mainUI = {}; // define the main ui obj
 
 	mainUI.control = { // commands and helpers
 		controlLabelContent: function(event, template) {
-			// save user entered content into this rows
-			// document attribute
-			var thatData = this; // in Meteor this is associated with the data that built the elements
-			// console.log(this.uniqueId);
-			// console.log(RowData.find({_id: Session.get('rows'), 'rows.uniqueId': this.uniqueId}));
-
-			// RowData.update(
-			// 	{_id: Session.get('rows'), 'rows.uniqueId': this.uniqueId},
-			// 	{$set: {title: this.title}}
-			// );
-			//console.log(event.currentTa);
-
-			console.log(this.uniqueId);
-			var findId = this.uniqueId;
-			console.log(test);
+			// update the edited rows data in the RowData collection
+			var newTitle = event.currentTarget.value;
+			RowData.update({_id: this._id}, {$set: {title: newTitle}});
 		},
-		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
+		controlAmountContent: function(event, template) { // this things job is to capture the amount entered and get it cleaned up
 			var that = event.currentTarget, // reference to current target
 				enteredValue = that.value, // current entered value
 				helpers = mainUI.helpers; // reference to the helpers obj
