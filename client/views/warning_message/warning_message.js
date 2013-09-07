@@ -6,6 +6,10 @@ warningMessage.controls = {
 		event.preventDefault();
 		// removes the sessions current document
 		DocumentData.remove(Session.get('document'));
+		$('#warn_window').modal('hide');
+		// now update the session with an existing document
+		var anotherDoc = DocumentData.findOne({});
+		Session.set('document', anotherDoc._id);
 	}
 };
 
