@@ -6,7 +6,7 @@ var mainUI = {}; // define the main ui obj
 			var that = event.currentTarget;
 			//this.label = that.value; // set the text value to this row
 
-			RowData.update({_id: Session.get('document')}, {$update: {rowData: {rowId: this.rowId: {$set: {label: this.label}}}});
+			// RowData.update({_id: Session.get('document')}, {$update: {rowData: {rowId: this.rowId: {$set: {label: this.label}}}});
 		},
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
 			var that = event.currentTarget, // reference to current target
@@ -61,7 +61,7 @@ $(document).ready(function() {
 	// template events
 	Template.main_ui.events({ // events associated with the main_ui template
 		'focusout .cost_input_field': mainUI.control.controlAmountContent, // controls the content entered - removes not needed characters and kicks off updating the data
-		'keydown .cost_input_field': globalHelpers.keyDownAllowCurrency, // use globalHelpers method to prevent unwanted characters for currency
+		'keydown .cost_input_field': GlobalHelpers.keyDownAllowCurrency, // use globalHelpers method to prevent unwanted characters for currency
 		'focusout .label_input_field': mainUI.control.controlLabelContent,
 		'click .toggle_opperation': mainUI.control.toggleOpperation,
 		'click .delete_row': mainUI.control.deleteRow
