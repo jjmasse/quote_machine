@@ -4,7 +4,9 @@ var mainUI = {}; // define the main ui obj
 		controlLabelContent: function(event, t) { // updates this rows label data
 			// console.log('need to update this instances label data');
 			var that = event.currentTarget;
-			this.label = that.value; // set the text value to this row
+			//this.label = that.value; // set the text value to this row
+
+			RowData.update({_id: Session.get('document')}, {$update: {rowData: {rowId: this.rowId: {$set: {label: this.label}}}});
 		},
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
 			var that = event.currentTarget, // reference to current target

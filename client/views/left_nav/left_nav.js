@@ -5,8 +5,7 @@ leftNav.control = { // methods for ui elements
 		event.preventDefault();
 		// globalValues.baseRowObject
 		// push a new row into the rowData
-		var uniqueId = Meteor.uuid();
-		RowData.update(Session.get('document'), {$push: {rowData: {rowId: uniqueId, amount: '', label: '', opperation: 'add', opperationSymbol: '+'}}});
+		RowData.update(Session.get('document'), {$push: {rowData: {rowId: Meteor.uuid(), amount: '', label: '', opperation: 'add', opperationSymbol: '+'}}});
 	},
 	addNewSection: function(event, t) {
 		event.preventDefault();
