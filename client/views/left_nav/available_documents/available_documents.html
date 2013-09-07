@@ -1,0 +1,9 @@
+<!-- application left bar list of available documents -->
+<template name="available_documents">
+		<ul class="nav nav-list">
+			<li><h4>Quotes</h4></li>
+			{{#each documentList}}
+				<li><a class="btn_set_document" href="#">{{title}}</a></li>
+			{{/each}}
+		</ul>
+</template>

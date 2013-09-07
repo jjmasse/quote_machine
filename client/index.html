@@ -17,7 +17,10 @@
   <div class="container" id="body_container">
     <div class="row">
       <!-- get the left nav -->
-      {{> left_nav}}
+      <div class="span3 bs-docs-sidebar" id="left_bar">
+        {{> left_nav}}
+        {{> available_documents}}
+      </div>
 
       <!-- get the body ui -->
       {{> main_ui}}
