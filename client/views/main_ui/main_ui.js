@@ -16,7 +16,6 @@ var mainUI = {}; // define the main ui obj
 
 			console.log(this.uniqueId);
 			var findId = this.uniqueId;
-			var test = RowData.findOne(Session.get('rows'), {rows: {uniqueId: findId}});
 			console.log(test);
 		},
 		controlAmountContent: function(event, t) { // this things job is to capture the amount entered and get it cleaned up
@@ -50,7 +49,7 @@ var mainUI = {}; // define the main ui obj
 			// remove this row from RowData by document using the uniqueId
 			// of the clicked row
 			event.preventDefault();
-			RowData.update(Session.get('rows'), {$pull: {rows: {uniqueId: this.uniqueId}}});
+			RowData.remove(this._id);
 		}
 	};
 	mainUI.helpers = { // helper methods
