@@ -4,6 +4,8 @@ availableDocuments.data = {};
 availableDocuments.controls = {
 	switchDocument: function(event, template) { // resets the session to load up the selected documents content
 		event.preventDefault();
+		console.log('setting document session variable');
+		console.log(this._id);
 		Session.set('document', this._id);
 	}
 };

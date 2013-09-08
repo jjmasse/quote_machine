@@ -8,7 +8,8 @@ documentTitle.controls = {
 		if(newText === '') { // if the thing comes out blank then make it untitled
 			newText = 'untitled';
 		}
-		DocumentData.update({_id: Session.get('document')}, {$set: {title: newText}});
+
+		DocumentData.update(Session.get('document'), {$set: {title: newText}});
 	}
 };
 
