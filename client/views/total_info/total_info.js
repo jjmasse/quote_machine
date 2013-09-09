@@ -18,7 +18,7 @@ totalInfo.control = { // total info controller methods
 			if(rowAmt !== '') {
 				if(rowOpperationSymbol === '+') {
 					newTotal = parseFloat(newTotal) + parseFloat(rowAmt);
-				} else if(rowOpperationSymbol === '-') {
+				} else {
 					newTotal = parseFloat(newTotal) - parseFloat(rowAmt);
 				}
 			}
